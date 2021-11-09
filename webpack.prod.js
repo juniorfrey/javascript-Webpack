@@ -1,7 +1,8 @@
 const HtmlWebPackPlugin         = require('html-webpack-plugin');
 const miniCssExtractPlugin      = require('mini-css-extract-plugin');
 const optimizeCssAssetsPlugin   = require('optimize-css-assets-webpack-plugin');
-const MinifyPlugin              = require("babel-minify-webpack-plugin");
+const MinifyPlugin              = require('babel-minify-webpack-plugin');
+const { CleanWebpackPlugin }    = require('clean-webpack-plugin');
 
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -74,7 +75,8 @@ module.exports = {
                 { from: 'src/assets', to: 'assets/' },
             ]
         }),
-        new MinifyPlugin()
+        new MinifyPlugin(),
+        new CleanWebpackPlugin(),
     ],
 
 
